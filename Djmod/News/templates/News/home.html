@@ -1,0 +1,15 @@
+<!-- news/templates/news/home.html -->
+{% extends 'news/base.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<h1>Последние новости</h1>
+<ul class="list-group">
+    {% for news in news_list %}
+    <li class="list-group-item">
+        <h5><a href="{% url 'news_detail' news.id %}">{{ news.title }}</a></h5>
+        <p>{{ news.short_description }}</p>
+        <small>Автор: {{ news.author }} | Дата: {{ news.publication_date }}</small>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

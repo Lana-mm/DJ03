@@ -1,0 +1,16 @@
+{% extends "news/base.html" %}
+
+{% block title %}Список новостей{% endblock %}
+
+{% block content %}
+    <h1>Все новости</h1>
+    <ul class="list-group">
+        {% for news in news_list %}
+            <li class="list-group-item">
+                <h5>{{ news.title }}</h5>
+                <p>{{ news.short_description }}</p>
+                <a href="{% url 'news_detail' news.id %}">Читать далее</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
